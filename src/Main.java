@@ -96,7 +96,7 @@ public class Main {
 	 * español, como por ejemplo à.
 	 * 
 	 * @param 	caracter parámetro de entrada, del cual se va a determinar si es una vocal o no.
-	 * @return boolean devuelev false, si caracter no es una vocal, y true en el caso contrario.
+	 * @return boolean devuelve false, si caracter no es una vocal, y true en el caso contrario.
 	 */
 	private static boolean esVocal(char caracter) {
 			int index="AEIOUaeioáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
