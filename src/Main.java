@@ -99,7 +99,7 @@ public class Main {
 	 * @return boolean devuelve false, si caracter no es una vocal, y true en el caso contrario.
 	 */
 	private static boolean esVocal(char caracter) {
-			int index="AEIOUaeioáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
+			int index="AEIOUaeiouáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
 			//caracter, en el string "AEIOUaeioáéíóú". En caso de no entrarse, indexOf devuelve -1
 		     return  index!= -1;//Devolvemos un boolean que será true si caracter se encontraba en la cadena
 		     					//"AEIOUaeioáéíóú", false en caso contrario.
