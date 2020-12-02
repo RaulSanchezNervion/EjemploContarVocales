@@ -15,7 +15,7 @@ public class Main {
 	/**
 	 * Método principal. Solicita al usuario
 	 * su nombre completo, e imprime por pantalla
-	 * el número de vocales que contiene dicho método.
+	 * el número de vocales que contiene dicho nombre.
 	 * 
 	 * @param args Entrada de la consola por defecto. No es utilizada.
 	 * 
@@ -35,17 +35,12 @@ public class Main {
 	 * 
 	 */
 	private static void imprimirResultado(int numeroVocales) {
-		if(numeroVocales>1) {//En el caso de que tenga más de una vocal
-			System.out.println("Su nombre completo tiene "+numeroVocales+" vocales");
-		}
-		else {
-			if(numeroVocales==1) {//En el caso de que tenga una vocal
-				System.out.println("Su nombre completo tiene "+numeroVocales+" vocal");
-			}
-			else {//En el caso de que no tenga vocales
-				System.out.println("Su nombre completo no tiene vocales");
-			}
-		}
+		System.out.println( //Imprimimos el mensaje, en función del número de vocales
+				switch(numeroVocales){
+					case 0 -> "Su nombre completo no tiene vocales";//En el caso de que no tenga vocales
+					case 1 -> "Su nombre completo tiene "+numeroVocales+" vocal";//En el caso de que tenga una vocal
+					default -> "Su nombre completo tiene "+numeroVocales+" vocales";//En el caso de que tenga más de una vocal
+				});
 	}
 
 	/**
@@ -99,10 +94,10 @@ public class Main {
 	 * @return boolean devuelve false, si caracter no es una vocal, y true en el caso contrario.
 	 */
 	private static boolean esVocal(char caracter) {
-			int index="AEIOUaeiouáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
-			//caracter, en el string "AEIOUaeioáéíóú". En caso de no entrarse, indexOf devuelve -1
-		     return  index!= -1;//Devolvemos un boolean que será true si caracter se encontraba en la cadena
-		     					//"AEIOUaeioáéíóú", false en caso contrario.
+		int index="AEIOUaeiouáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
+		//caracter, en el string "AEIOUaeioáéíóú". En caso de no entrarse, indexOf devuelve -1
+		return  index!= -1;//Devolvemos un boolean que será true si caracter se encontraba en la cadena
+		//"AEIOUaeioáéíóú", false en caso contrario.
 	}
 
 }
