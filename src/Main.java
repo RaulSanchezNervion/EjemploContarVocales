@@ -73,10 +73,10 @@ public class Main {
 	private static int contarVocales(String nombreCompleto) {
 		//Declaración de variables
 		int numeroVocales=0;//Iniciamos a cero el numero de vocales que hemos encontrado
-		int longitud=nombreCompleto.length()-1;//longitud contiene el numero de caracteres
+		int numeroCaracteresNombreCompleto=nombreCompleto.length()-1;//numeroCaracteresNombreCompleto contiene el numero de caracteres
 		//de nombreCompleto, teniendo en cuenta que empieza por cero, por eso -1.
-		for(int i=0;i<=longitud;i++) {//Recorremos todos los caracteres de nombreCompleto,
-			//empezando pro el primero
+		for(int i=0;i<=numeroCaracteresNombreCompleto;i++) {//Recorremos todos los caracteres de nombreCompleto,
+			//empezando por el primero
 			char caracter=nombreCompleto.charAt(i);//Obtenemos el caracter que está en la posición i
 			if(esVocal(caracter)) {//En el caso de que sea vocal
 				numeroVocales++;//Incrementamos numero vocales
@@ -95,7 +95,7 @@ public class Main {
 	 */
 	private static boolean esVocal(char caracter) {
 		int index="AEIOUaeiouáéíóú".indexOf(caracter);//Obtenemos en qué posición se encuentra
-		//caracter, en el string "AEIOUaeioáéíóú". En caso de no entrarse, indexOf devuelve -1
+		//caracter, en el string "AEIOUaeioáéíóú". En caso de no encontrarse, indexOf devuelve -1
 		return  index!= -1;//Devolvemos un boolean que será true si caracter se encontraba en la cadena
 		//"AEIOUaeioáéíóú", false en caso contrario.
 	}
