@@ -22,7 +22,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		String nombreCompleto=solicitarNombre();//Solicita el nombre completo al usuario
-		int numeroVocales=contarVocales(nombreCompleto);//contabiliza el numero de vocales
+		int numeroVocales=contarVocalesRecursivo(nombreCompleto);//contabiliza el numero de vocales
 		imprimirResultado(numeroVocales);//Se muestra el resultado por pantalla		
 	}
 
@@ -35,12 +35,8 @@ public class Main {
 	 * 
 	 */
 	private static void imprimirResultado(int numeroVocales) {
-		System.out.println( //Imprimimos el mensaje, en función del número de vocales
-				switch(numeroVocales){
-					case 0 -> "Su nombre completo no tiene vocales";//En el caso de que no tenga vocales
-					case 1 -> "Su nombre completo tiene "+numeroVocales+" vocal";//En el caso de que tenga una vocal
-					default -> "Su nombre completo tiene "+numeroVocales+" vocales";//En el caso de que tenga más de una vocal
-				});
+		System.out.println( //Imprimimos el mensaje
+				"Su nombre completo tiene "+numeroVocales+" vocales");//En el caso de que tenga más de una vocal
 	}
 
 	/**
@@ -51,13 +47,7 @@ public class Main {
 	 * 			consola por el usuario
 	 */
 	private static String solicitarNombre() {
-		//Declaración de variables
-		Scanner teclado=new Scanner(System.in);
-		String nombreCompleto;
-		//Se solicita al usuario su nombre completo
-		System.out.println("indique su nombre y apellidos, por favor.");
-		nombreCompleto=teclado.nextLine();//Se lee el nombre introducido por teclado
-		teclado.close();//Se cierra el Scanner
+		String nombreCompleto="Liu";//nombre completo
 		return nombreCompleto;//Se devuelve como resultado el nombre introducido
 	}
 
@@ -70,14 +60,13 @@ public class Main {
 	 * 			que contiene.
 	 * @return int número de vocales que contiene el parámetro de entrada nombreCompleto
 	 */
-	private static int contarVocales(String nombreCompleto) {
-		//Declaración de variables
-		int numeroVocales=0;//Iniciamos a cero el numero de vocales que hemos encontrado
-		int numeroCaracteresNombreCompleto=nombreCompleto.length()-1;//numeroCaracteresNombreCompleto contiene el numero de caracteres
-		//de nombreCompleto, teniendo en cuenta que empieza por cero, por eso -1.
-		for(int i=0;i<=numeroCaracteresNombreCompleto;i++) {//Recorremos todos los caracteres de nombreCompleto,
-			//empezando por el primero
-			char caracter=nombreCompleto.charAt(i);//Obtenemos el caracter que está en la posición i
+	private static int contarVocalesRecursivo(String nombreCompleto) {
+		int numeroVocales=0;
+		if(nombreCompleto.length()==0)//Caso base: Caso de que la cadena esta vacia
+			numeroVocales=0;
+		else {
+			char caracter=nombreCompleto.charAt(0);//Obtenemos el caracter que está en la posición 0
+			numeroVocales=contarVocalesRecursivo(nombreCompleto.substring(2));
 			if(esVocal(caracter)) {//En el caso de que sea vocal
 				numeroVocales++;//Incrementamos numero vocales
 			}
