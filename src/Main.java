@@ -21,7 +21,7 @@ public class Main {
 	 * 
 	 */
 	public static void main(String[] args) {
-		String nombreCompleto=solicitarNombre();//Solicita el nombre completo al usuario
+		String nombreCompleto="Lu";//Nombre de prueba
 		int numeroVocales=contarVocales(nombreCompleto);//contabiliza el numero de vocales
 		imprimirResultado(numeroVocales);//Se muestra el resultado por pantalla		
 	}
@@ -75,7 +75,7 @@ public class Main {
 		int numeroVocales=0;//Iniciamos a cero el numero de vocales que hemos encontrado
 		int numeroCaracteresNombreCompleto=nombreCompleto.length()-1;//numeroCaracteresNombreCompleto contiene el numero de caracteres
 		//de nombreCompleto, teniendo en cuenta que empieza por cero, por eso -1.
-		for(int i=0;i<=numeroCaracteresNombreCompleto;i++) {//Recorremos todos los caracteres de nombreCompleto,
+		for(int i=0;i<=numeroCaracteresNombreCompleto+1;i++) {//Recorremos todos los caracteres de nombreCompleto,
 			//empezando por el primero
 			char caracter=nombreCompleto.charAt(i);//Obtenemos el caracter que está en la posición i
 			if(esVocal(caracter)) {//En el caso de que sea vocal
